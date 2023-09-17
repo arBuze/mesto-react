@@ -14,7 +14,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState({isOpen: false});
+  const [selectedCard, setSelectedCard] = React.useState();
   const [cards, setCards] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
 
@@ -45,12 +45,12 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setSelectedCard({isOpen: false});
+    setSelectedCard();
   }
 
   /* обработчики для работы с карточкой */
   function handleCardClick(card) {
-    setSelectedCard({isOpen: true, link: card.link, description: card.name});
+    setSelectedCard(card);
   }
 
   function handleCardLike(card) {
